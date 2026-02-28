@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Bot, User, ShieldAlert, Sparkles } from 'lucide-react';
+import { Bot, ShieldAlert, Sparkles } from 'lucide-react';
 import { useSimulationStore } from '../stores/useSimulationStore';
 
 const AICoPilot: React.FC = () => {
-    const { isRunning, lastResult, mutationLoad, inflammationLevel } = useSimulationStore();
+    const { isRunning, lastResult, inflammationLevel } = useSimulationStore();
     const [messages, setMessages] = useState<{ role: 'ai' | 'user'; text: string; icon: any }[]>([
         {
             role: 'ai',

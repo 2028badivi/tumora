@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Stage, Layer, Circle, Arrow, Text, Group } from 'react-konva';
+import { Stage, Layer, Circle, Arrow, Group } from 'react-konva';
 import { useCanvasStore } from '../stores/useCanvasStore';
 
 const getNodeColor = (type: string) => {
