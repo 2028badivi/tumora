@@ -1,9 +1,14 @@
 import React from 'react';
+import Toolbar from '../canvas/Toolbar';
+import MolecularCanvas from '../canvas/MolecularCanvas';
+import RightPanel from '../canvas/RightPanel';
 
 const DebugMode: React.FC = () => {
     return (
-        <div className="flex-1 w-full flex items-center justify-center p-4">
-            <h2 className="text-2xl font-semibold text-primary">Debug Mode</h2>
+        <div className="flex h-full w-full">
+            <Toolbar />
+            <MolecularCanvas />
+            <RightPanel />
         </div>
     );
 };
