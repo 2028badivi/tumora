@@ -1,73 +1,39 @@
-# React + TypeScript + Vite
+# Tumora - "Code Your Cure"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tumora is a patient empowerment cancer simulation web application, built as a pure frontend React experience.
 
-Currently, two official plugins are available:
+> **Disclaimer**: Tumora is an educational simulation only and does not provide medical advice. Always consult your doctor for real medical decisions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Built by CodeTheCure Labs.
 
-## React Compiler
+## Features
+- **Molecular Canvas**: A visual drag-and-drop bio-programming interface to map out your tumor profile.
+- **Simulation Engine**: Runs rule-based mock simulations derived from abstract, generalized data.
+- **Trial Forge Mode**: Mock ClinicalTrials.gov matches and smart question generator for your oncologist.
+- **Legacy Forge Mode**: Persists your simulation history in localStorage for later review.
+- **AI Co-Pilot**: An embedded interactive narrator that interprets your canvas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
+- Frontend: Vite + React 18 + TypeScript
+- Styling: TailwindCSS v3
+- State Management: Zustand (with `persist` middleware for localStorage)
+- Canvas: Konva.js + react-konva
+- Icons: lucide-react
+- Dates: date-fns
 
-## Expanding the ESLint configuration
+## Running Locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. Open `http://localhost:5173` in your browser.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Architecture & Storage
+All data is stored exclusively in your browser's `localStorage` (keys: `tumora_sims`, `tumora_profile`). No external databases or APIs track your simulation states.
