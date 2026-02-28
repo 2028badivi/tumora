@@ -37,3 +37,4 @@ Built by CodeTheCure Labs.
 
 ## Architecture & Storage
 All data is stored exclusively in your browser's `localStorage` (keys: `tumora_sims`, `tumora_profile`). No external databases or APIs track your simulation states.
+
